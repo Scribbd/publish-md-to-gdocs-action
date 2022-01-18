@@ -1,0 +1,32 @@
+---
+name: 'publish_md_to_gdocs'
+author: Coen Meulenkamp (Scribbd)
+description: "Publish your MarkDown files to a Google Docs Template"
+branding:
+  icon: 'upload-cloud'
+  color: 'green'
+runs:
+  using: 'docker'
+  image: 'docker/prod.Dockerfile'
+inputs:
+  source_dir:
+    required: true
+    description: "Source directory inside your git-repository"
+  destination_url:
+    required: true
+    description: "Destination url of your GDrive"
+  template_url:
+    required: true
+    description: "URL of a template that has the right formatting enabled"
+  recurse_dir:
+    required: false
+    default: true
+    description: "Recurse down in sub-directories"
+  # google_application_credentials:
+  #   required: false
+  #   description: "Get a federated workload token from the auth action"
+  # TODO implement, default is currently flat
+  # flat-output:
+  #   required: false
+  #   default: false
+  #   description: "When true it will not recreate the directory structure in the destination drive"
